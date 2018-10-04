@@ -1,3 +1,4 @@
 ﻿  emersonH_CS310-01.cpp
-c:\users\user\documents\sourcetree\weather-station\emersonh_cs310-01\emersonh_cs310-01.cpp(48): warning C4129: 'S': unrecognized character escape sequence
+c:\users\user\documents\sourcetree\weather-station\emersonh_cs310-01\emersonh_cs310-01.cpp(38): warning C4129: '.': unrecognized character escape sequence
+c:\users\user\documents\sourcetree\weather-station\emersonh_cs310-01\emersonh_cs310-01.cpp(64): warning C4018: '<': signed/unsigned mismatch
   emersonH_CS310-01.vcxproj -> C:\Users\User\Documents\SourceTree\Weather-Station\Debug\emersonH_CS310-01.exe
