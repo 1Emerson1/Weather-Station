@@ -18,9 +18,6 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="emersonH_CS310-01.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="temperature.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -30,12 +27,15 @@
     <ClInclude Include="valid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="weather.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="emersonH_CS310-01.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="temperature.cpp">
@@ -45,6 +45,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="valid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="weather.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -151,14 +151,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="emersonH_CS310-01.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="temperature.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="valid.h" />
+    <ClInclude Include="weather.h" />
     <ClInclude Include="wind.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="emersonH_CS310-01.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -167,6 +168,7 @@
     </ClCompile>
     <ClCompile Include="temperature.cpp" />
     <ClCompile Include="valid.cpp" />
+    <ClCompile Include="weather.cpp" />
     <ClCompile Include="wind.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

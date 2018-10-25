@@ -3,7 +3,6 @@
 #include "pch.h"
 #include "valid.h"
 #include "temperature.h"
-#include "emersonH_CS310-01.h"
 
 #include <iostream>
 #include <string>
@@ -11,13 +10,19 @@
 
 using namespace std;
 
-string setTemp(string curTemp, regex intValid, int MIN_TEMP, int MAX_TEMP) {
+string curTemp;
+const int MAX_TEMP = 120;
+const int MIN_TEMP = -30;
+
+regex tempValid("^(((-)?[0-9](\.)?)+)$");
+
+string getTemp() {
 	// current temperature
 	cout << "Please enter the current temperature: ";
 	getline(cin, curTemp);
 	while (true) {
 		// check validity & range
-		if (regex_search(curTemp, intValid)) {
+		if (regex_search(curTemp, tempValid)) {
 			if (checkRange(curTemp, MIN_TEMP, MAX_TEMP)) {
 				break;
 			} else {
