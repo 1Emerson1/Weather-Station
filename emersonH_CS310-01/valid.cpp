@@ -1,3 +1,4 @@
+// CREATED BY Emerson Hidalgo
 #include "pch.h"
 
 #include <string>
@@ -20,8 +21,8 @@ bool empty_variable(string input) {
 	}
 }
 
-bool checkRange(string compareVal, int MIN_RANGE, int MAX_RANGE) {
-	if (MIN_RANGE > stoi(compareVal) || stoi(compareVal) >= MAX_RANGE) {
+bool checkRange(int compareVal, int MIN_RANGE, int MAX_RANGE) {
+	if (MIN_RANGE > compareVal || compareVal >= MAX_RANGE) {
 		return false;
 	} else {
 		return true;

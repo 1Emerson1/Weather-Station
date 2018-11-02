@@ -155,7 +155,6 @@
     <ClInclude Include="temperature.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="valid.h" />
-    <ClInclude Include="weather.h" />
     <ClInclude Include="wind.h" />
   </ItemGroup>
   <ItemGroup>
@@ -168,7 +167,6 @@
     </ClCompile>
     <ClCompile Include="temperature.cpp" />
     <ClCompile Include="valid.cpp" />
-    <ClCompile Include="weather.cpp" />
     <ClCompile Include="wind.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,10 +1,7 @@
-//contains temperature variable declartions of fncs
-
+// CREATED BY Emerson Hidalgo
 #ifndef TEMPERATURE_H
 #define TEMPERATURE_H
 
-#include <string>
-
-std::string getTemp();
+int getTemp();
 
 #endif

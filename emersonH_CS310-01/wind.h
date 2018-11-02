@@ -1,11 +1,10 @@
-//contains temperature variable declartions of fncs
-
+// CREATED BY Emerson Hidalgo
 #ifndef WIND_H
 #define WIND_H
 
 #include <string>
 
-std::string getWSpeed();
+int getWSpeed();
 std::string getWDir();
 
 #endif

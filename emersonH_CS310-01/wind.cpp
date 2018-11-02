@@ -1,8 +1,7 @@
-// contains wind fncs
+// CREATED BY Emerson Hidalgo
 #include "pch.h"
 #include "wind.h"
 #include "valid.h"
-#include "main.h"
 
 #include <string>
 #include <array>
@@ -14,60 +13,72 @@ using namespace std;
 regex intValid("^(((-)?[0-9](\.)?)+)$");
 regex dirValid("^([a-zA-Z]{1,9})$");
 
-string windSpeed;
+string winInput;
 string windDir;
+int windSpeed;
+
 const int MAX_WSPEED = 120;
 const int MIN_WSPEED = 0;
-const int ARR_SIZE = 32;
-array<string, ARR_SIZE> winDirList = { "north", "south", "east", "west", "n", "s", "e", "w",
+const int SIZE = 32;
+
+array<string, SIZE> winDirList = { "north", "south", "east", "west", "n", "s", "e", "w",
 "N", "S", "E", "W", "ne", "nw", "se", "sw", "NE", "NW", "SE", "SW", "North", "South",
 "East", "West", "Northeast", "Northwest", "Southwest", "Southeast", "northeast", "northwest", "southwest", "southeast"};
 
-string getWSpeed() {
+int getWSpeed() {
 	cout << "Please enter the wind speed: ";
-	getline(cin, windSpeed);
+	getline(cin, winInput);
 
-	while (true) {
-		// check validity & range
-		if (!regex_search(windSpeed, intValid)) {
-			invalidInput("wind speed");
-			getline(cin, windSpeed);
-		} else {
-			if (checkRange(windSpeed, MIN_WSPEED, MAX_WSPEED)) {
-				break;
-			}
-			else {
+	// if the user does not enter anything, set value to zero
+	if (winInput != "") {
+		while (true) {
+			// check validity & range
+			if (!regex_search(winInput, intValid)) {
 				invalidInput("wind speed");
-				getline(cin, windSpeed);
+				getline(cin, winInput);
+			} else {
+				if (!checkRange(stoi(winInput), MIN_WSPEED, MAX_WSPEED)) {
+					invalidInput("wind speed");
+					getline(cin, winInput);
+				}
+				windSpeed = stoi(winInput);
+				break;
 			}
 		}
 	}
+	else {
+		windSpeed = 0;
+	}
+
 	return windSpeed;
 }
 
 string getWDir() {
 	cout << "Please enter the wind direction (e.g North, South, West, East): ";
-	getline(cin, windDir);
+	getline(cin, winInput);
 
-	while (true) {
-		if (!regex_search(windDir, dirValid)) {
-			invalidInput("wind direction");
-			getline(cin, windDir);
-		}
-		int hit = 0;
-		// looks for match
-		for (int i = 0; i < winDirList.size(); i++) {
-			if (windDir == winDirList[i]) {
-				hit = 1;
-				break;
-			}
-			if (i == winDirList.size()-1) {
+	if (winInput != "") {
+		while (true) {
+			if (!regex_search(winInput, dirValid)) {
 				invalidInput("wind direction");
-				getline(cin, windDir);
-				i = -1;
+				getline(cin, winInput);
 			}
+			// looks for match
+			for (int i = 0; i < winDirList.size(); i++) {
+				if (winInput == winDirList[i]) {
+					break;
+				}
+				if (i == winDirList.size() - 1) {
+					invalidInput("wind direction");
+					getline(cin, winInput);
+					i = -1;
+				}
+			}
+			windDir = winInput;
+			break;
 		}
-		break;
+	} else {
+		windDir = "[no value]";
 	}
 	return windDir;
 }
