@@ -151,10 +151,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="main.h" />
     <ClInclude Include="temperature.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="valid.h" />
+    <ClInclude Include="weatherMeasurement.h" />
     <ClInclude Include="wind.h" />
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +167,7 @@
     </ClCompile>
     <ClCompile Include="temperature.cpp" />
     <ClCompile Include="valid.cpp" />
+    <ClCompile Include="weatherMeasurement.cpp" />
     <ClCompile Include="wind.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

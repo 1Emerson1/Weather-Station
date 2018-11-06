@@ -1,7 +1,4 @@
-﻿  temperature.cpp
-c:\users\user\documents\sourcetree\weather-station\emersonh_cs310-01\temperature.cpp(17): warning C4129: '.': unrecognized character escape sequence
-  wind.cpp
-c:\users\user\documents\sourcetree\weather-station\emersonh_cs310-01\wind.cpp(13): warning C4129: '.': unrecognized character escape sequence
-c:\users\user\documents\sourcetree\weather-station\emersonh_cs310-01\wind.cpp(67): warning C4018: '<': signed/unsigned mismatch
+﻿  main.cpp
+  weatherMeasurement.cpp
   Generating Code...
   emersonH_CS310-01.vcxproj -> C:\Users\User\Documents\SourceTree\Weather-Station\Debug\emersonH_CS310-01.exe

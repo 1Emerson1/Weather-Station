@@ -10,13 +10,13 @@
 using namespace std;
 
 string input;
-int curTemp;
+temp_t newTemp;
 const int MAX_TEMP = 120;
 const int MIN_TEMP = -30;
 
 regex tempValid("^(((-)?[0-9](\.)?)+)$");
 
-int getTemp() {
+temp_t getTemp() {
 	// current temperature
 	cout << "Please enter the current temperature: ";
 	getline(cin, input);
@@ -32,14 +32,13 @@ int getTemp() {
 					invalidInput("current temperature");
 					getline(cin, input);	
 				}
-				curTemp = stoi(input);
+				newTemp.curTemp = stoi(input);
 				break;
 			}
 		}
 	} else {
-		curTemp = 0;
+		newTemp.curTemp = 0;
 	}
-	return curTemp;
+	return newTemp;
 }
-
 
