@@ -1,17 +1,27 @@
 // CREATED BY Emerson Hidalgo
-
 #include "pch.h"
-#include "temperature.h"
 #include "wind.h"
+#include "temperature.h"
 #include "weatherMeasurement.h"
 
-#include <string>
+Weather::Weather() {}
 
-weather_t createWeather() {
-	weather_t newWeather;
-
-	newWeather.curTemp = getTemp();
-	newWeather.wind = getWind();
-
-	return newWeather;
+void Weather::allocate() {
+	temp.setTemp();
+	w.inputSpeed();
+	w.inputDir();
 }
+
+std::string Weather::getWDir() {
+	return w.getDir();
+}
+
+int Weather::getWSpeed() {
+	return w.getSpeed();
+}
+
+int Weather::getTemp() {
+	return temp.getTemp();
+}
+
+

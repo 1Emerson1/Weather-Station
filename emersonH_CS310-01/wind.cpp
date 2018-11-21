@@ -14,7 +14,7 @@ regex intValid("^(((-)?[0-9](\.)?)+)$");
 regex dirValid("^([a-zA-Z]{1,9})$");
 
 string winInput;
-wind_t newWind;
+Wind newWind;
 
 const int MAX_WSPEED = 120;
 const int MIN_WSPEED = 0;
@@ -24,7 +24,9 @@ array<string, SIZE> winDirList = { "north", "south", "east", "west", "n", "s", "
 "N", "S", "E", "W", "ne", "nw", "se", "sw", "NE", "NW", "SE", "SW", "North", "South",
 "East", "West", "Northeast", "Northwest", "Southwest", "Southeast", "northeast", "northwest", "southwest", "southeast"};
 
-wind_t getWind() {
+Wind::Wind() {}
+
+void Wind::inputSpeed() {
 	cout << "Please enter the wind speed: ";
 	getline(cin, winInput);
 
@@ -41,63 +43,6 @@ wind_t getWind() {
 					invalidInput("wind speed");
 					getline(cin, winInput);
 				}
-				newWind.winSpeed = stoi(winInput);
-				break;
-			}
-		}
-	}
-	else {
-		newWind.winSpeed = 0;
-	}
-
-	cout << "Please enter the wind direction (e.g North, South, West, East): ";
-	getline(cin, winInput);
-
-	if (winInput != "") {
-		while (true) {
-			if (!regex_search(winInput, dirValid)) {
-				invalidInput("wind direction");
-				getline(cin, winInput);
-			}
-			// looks for match
-			for (int i = 0; i < winDirList.size(); i++) {
-				if (winInput == winDirList[i]) {
-					break;
-				}
-				if (i == winDirList.size() - 1) {
-					invalidInput("wind direction");
-					getline(cin, winInput);
-					i = -1;
-				}
-			}
-			newWind.winDir = winInput;
-			break;
-		}
-	}
-	else {
-		newWind.winDir = "[no value]";
-	}
-
-	return newWind;
-}
-
-/*
-int getWSpeed() {
-	cout << "Please enter the wind speed: ";
-	getline(cin, winInput);
-
-	// if the user does not enter anything, set value to zero
-	if (winInput != "") {
-		while (true) {
-			// check validity & range
-			if (!regex_search(winInput, intValid)) {
-				invalidInput("wind speed");
-				getline(cin, winInput);
-			} else {
-				if (!checkRange(stoi(winInput), MIN_WSPEED, MAX_WSPEED)) {
-					invalidInput("wind speed");
-					getline(cin, winInput);
-				}
 				windSpeed = stoi(winInput);
 				break;
 			}
@@ -106,11 +51,9 @@ int getWSpeed() {
 	else {
 		windSpeed = 0;
 	}
-
-	return windSpeed;
 }
 
-string getWDir() {
+void Wind::inputDir() {
 	cout << "Please enter the wind direction (e.g North, South, West, East): ";
 	getline(cin, winInput);
 
@@ -131,12 +74,19 @@ string getWDir() {
 					i = -1;
 				}
 			}
-			windDir = winInput;
+			winDir = winInput;
 			break;
 		}
-	} else {
-		windDir = "[no value]";
 	}
-	return windDir;
+	else {
+		winDir = "[no value]";
+	}
 }
-*/
+
+int Wind::getSpeed() {
+	return windSpeed;
+}
+
+string Wind::getDir() {
+	return winDir;
+}

@@ -1,13 +1,13 @@
 // CREATED BY Emerson Hidalgo
-
 #pragma once
 #ifndef TEMPERATURE_H
 #define TEMPERATURE_H
 
-struct temp_t {
+class Temperature {
 	int curTemp;
+	public:
+		Temperature();
+		void setTemp();
+		int getTemp();
 };
-
-temp_t getTemp();
-
 #endif

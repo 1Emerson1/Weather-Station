@@ -1,17 +1,19 @@
 // CREATED BY Emerson Hidalgo
+#pragma once
 
-#pragma once // static
 #ifndef WEATHERMEASUREMENT_H
 #define WEATHERMEASUREMENT_H
 
-struct weather_t {
-	temp_t curTemp;
-	wind_t wind;
+class Weather {
+		Temperature temp;
+		Wind w;
+	public:
+		Weather();
+		void allocate();
+		int getTemp();
+		std::string getWDir();
+		int getWSpeed();
 };
-
-weather_t createWeather();
-
-// void print_wind();
 
 #endif // WEATHERMEASUREMENT_H
 
