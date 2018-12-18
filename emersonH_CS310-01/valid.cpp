@@ -1,5 +1,7 @@
 // CREATED BY Emerson Hidalgo
 #include "pch.h"
+#include "StringServer.h"
+#include "valid.h"
 
 #include <string>
 #include <regex>
@@ -7,9 +9,11 @@
 
 using namespace std;
 
+StringServer ss_;
+
 void invalidInput(string inputName) {
-	cout << "Invalid input!" << endl;
-	cout << "Please enter the " << inputName << ": ";
+	cout << ss_.returnValue("invalid_input") << "!" << endl;
+	cout << ss_.returnValue("input") << inputName << ": ";
 }
 
 bool empty_variable(string input) {

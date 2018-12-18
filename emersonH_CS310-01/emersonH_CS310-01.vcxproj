@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -151,10 +151,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="StringServer.h" />
     <ClInclude Include="temperature.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="valid.h" />
     <ClInclude Include="weatherMeasurement.h" />
+    <ClInclude Include="weatherStation.h" />
     <ClInclude Include="wind.h" />
   </ItemGroup>
   <ItemGroup>
@@ -165,10 +167,16 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="StringServer.cpp" />
     <ClCompile Include="temperature.cpp" />
     <ClCompile Include="valid.cpp" />
     <ClCompile Include="weatherMeasurement.cpp" />
+    <ClCompile Include="weatherStation.cpp" />
     <ClCompile Include="wind.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="english.txt" />
+    <Text Include="piglatin.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

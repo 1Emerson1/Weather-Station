@@ -30,6 +30,9 @@
     <ClInclude Include="weatherMeasurement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StringServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -50,5 +53,16 @@
     <ClCompile Include="weatherMeasurement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StringServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="english.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="piglatin.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

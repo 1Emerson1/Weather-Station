@@ -23,5 +23,3 @@ int Weather::getWSpeed() {
 int Weather::getTemp() {
 	return temp.getTemp();
 }
-
-

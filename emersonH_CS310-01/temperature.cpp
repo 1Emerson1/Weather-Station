@@ -2,6 +2,7 @@
 #include "pch.h"
 #include "valid.h"
 #include "temperature.h"
+#include "StringServer.h"
 
 #include <iostream>
 #include <string>
@@ -19,18 +20,18 @@ Temperature::Temperature() {}
 
 void Temperature::setTemp() {
 	// current temperature
-	cout << "Please enter the current temperature: ";
+	cout << returnValue("input") << returnValue("current_temp") << ": ";
 	getline(cin, input);
 
 	if (input != "") {
 		while (true) {
 			// check validity & range
 			if (!regex_search(input, tempValid)) {
-				invalidInput("current temperature");
+				invalidInput(returnValue("current_temp"));
 				getline(cin, input);
 			} else {
 				if (!checkRange(stoi(input), MIN_TEMP, MAX_TEMP)) {
-					invalidInput("current temperature");
+					invalidInput(returnValue("current_temp"));
 					getline(cin, input);	
 				}
 				curTemp = stoi(input);
@@ -46,3 +47,6 @@ int Temperature::getTemp() {
 	return curTemp;
 }
 
+string Temperature::returnValue(string key) {
+	return StringServer::returnValue(key);
+}

@@ -2,6 +2,7 @@
 #include "pch.h"
 #include "wind.h"
 #include "valid.h"
+#include "StringServer.h"
 
 #include <string>
 #include <array>
@@ -14,7 +15,6 @@ regex intValid("^(((-)?[0-9](\.)?)+)$");
 regex dirValid("^([a-zA-Z]{1,9})$");
 
 string winInput;
-Wind newWind;
 
 const int MAX_WSPEED = 120;
 const int MIN_WSPEED = 0;
@@ -27,7 +27,7 @@ array<string, SIZE> winDirList = { "north", "south", "east", "west", "n", "s", "
 Wind::Wind() {}
 
 void Wind::inputSpeed() {
-	cout << "Please enter the wind speed: ";
+	cout << returnValue("input") << returnValue("wind_speed") << ": ";
 	getline(cin, winInput);
 
 	// if the user does not enter anything, set value to zero
@@ -35,12 +35,12 @@ void Wind::inputSpeed() {
 		while (true) {
 			// check validity & range
 			if (!regex_search(winInput, intValid)) {
-				invalidInput("wind speed");
+				invalidInput(returnValue("wind_speed"));
 				getline(cin, winInput);
 			}
 			else {
 				if (!checkRange(stoi(winInput), MIN_WSPEED, MAX_WSPEED)) {
-					invalidInput("wind speed");
+					invalidInput(returnValue("wind_speed"));
 					getline(cin, winInput);
 				}
 				windSpeed = stoi(winInput);
@@ -54,13 +54,13 @@ void Wind::inputSpeed() {
 }
 
 void Wind::inputDir() {
-	cout << "Please enter the wind direction (e.g North, South, West, East): ";
+	cout << returnValue("input") << returnValue("wind_dir") << ": ";
 	getline(cin, winInput);
 
 	if (winInput != "") {
 		while (true) {
 			if (!regex_search(winInput, dirValid)) {
-				invalidInput("wind direction");
+				invalidInput(returnValue("wind_dir_shrt"));
 				getline(cin, winInput);
 			}
 			// looks for match
@@ -69,7 +69,7 @@ void Wind::inputDir() {
 					break;
 				}
 				if (i == winDirList.size() - 1) {
-					invalidInput("wind direction");
+					invalidInput(returnValue("wind_dir_shrt"));
 					getline(cin, winInput);
 					i = -1;
 				}
@@ -79,7 +79,7 @@ void Wind::inputDir() {
 		}
 	}
 	else {
-		winDir = "[no value]";
+		winDir = returnValue("no_value");
 	}
 }
 
@@ -89,4 +89,8 @@ int Wind::getSpeed() {
 
 string Wind::getDir() {
 	return winDir;
+}
+
+string Wind::returnValue(string key) {
+	return StringServer::returnValue(key);
 }
