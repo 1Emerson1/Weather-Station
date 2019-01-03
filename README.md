@@ -18,4 +18,4 @@ The program showcases a slice of internationalization using a barebones method s
 Once executed, the program will prompt the user configuration options, such as the number of weather station(s) desired and the history size for each weather station. Once configured, the user can use the menu to input and view data.
 
 ## Credits
-The program is created and maintained by Emerson Hidalgo.
+This program was created by Emerson Hidalgo.
